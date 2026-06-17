@@ -183,7 +183,7 @@
     h1.hero-h .accent{color:var(--amber);font-style:italic;position:relative;white-space:nowrap}
     .hero-sub{font-size:clamp(17.5px,1.4vw,21.5px);color:var(--text-2);max-width:586px;margin-bottom:40px;line-height:1.66}
     .hero-sub b{color:var(--text);font-weight:600}
-    .hero-actions{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+    .hero-actions{display:flex;flex-direction:column;align-items:flex-start;gap:14px}
     .play-btn{
       position:relative;overflow:hidden;
       display:inline-flex;align-items:center;gap:13px;
@@ -201,6 +201,31 @@
     .play-btn:hover::after{animation:sheen .8s var(--ease)}
     .play-note{font-size:13.5px;color:var(--text-3)}
     .play-note b{color:var(--text-2);font-weight:600}
+    /* email launch-list signup */
+    .signup{display:flex;gap:10px;flex-wrap:wrap;align-items:center;width:100%;max-width:470px;position:relative}
+    .signup .field{flex:1 1 220px;display:flex}
+    .signup input[type=email]{flex:1;width:100%;background:rgba(255,255,255,.04);border:1px solid var(--line-2);border-radius:14px;padding:16px 18px;color:var(--text);font-family:var(--font-body);font-size:16px;transition:border-color .25s,background .25s}
+    .signup input[type=email]::placeholder{color:var(--text-3)}
+    .signup input[type=email]:focus{outline:none;border-color:rgba(232,168,87,.6);background:rgba(255,255,255,.06)}
+    .signup button{flex:none;border:0;cursor:pointer;background:#E8A857;color:var(--ink-on-amber);padding:16px 26px;border-radius:14px;font-family:var(--font-body);font-weight:600;font-size:16px;box-shadow:0 14px 40px -12px rgba(232,168,87,.6);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+    .signup button:hover{transform:translateY(-2px);box-shadow:0 22px 52px -12px rgba(240,180,90,.85)}
+    .signup button:active{transform:scale(.97)}
+    .signup.busy button{opacity:.6;pointer-events:none}
+    .signup .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none}
+    .signup-msg{font-size:14.5px;font-weight:600;line-height:1.5;max-width:470px;display:none}
+    .signup-msg.ok{color:var(--good);display:block}
+    .signup-msg.err{color:var(--bad);display:block}
+    .coming-soon{display:inline-flex;align-items:center;gap:9px;font-size:13px;font-weight:600;letter-spacing:.03em;color:var(--text-3)}
+    .coming-soon svg{width:16px;height:16px;opacity:.85}
+    .hero-price{font-size:14px;color:var(--text-3);max-width:470px;line-height:1.55}
+    .hero-price b{color:var(--text-2);font-weight:600}
+    .hero-price .tag{color:var(--amber);font-weight:700}
+    /* who it's for */
+    .whofor{list-style:none;max-width:780px;margin:38px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:15px 34px;text-align:left}
+    .whofor li{position:relative;padding-left:32px;font-size:16.5px;color:var(--text-2);line-height:1.5}
+    .whofor li::before{content:"";position:absolute;left:0;top:4px;width:18px;height:18px;border-radius:50%;background:rgba(232,168,87,.13);border:1px solid rgba(232,168,87,.4)}
+    .whofor li::after{content:"";position:absolute;left:6px;top:8px;width:5px;height:9px;border:solid var(--amber);border-width:0 2px 2px 0;transform:rotate(45deg)}
+    @media(max-width:680px){.whofor{grid-template-columns:1fr;max-width:430px}}
 
     /* phone */
     .hero-visual{position:relative;z-index:2;display:flex;justify-content:center;align-items:center}
@@ -221,7 +246,7 @@
       background:linear-gradient(158deg,#28344e,#0d1525);
       box-shadow:0 55px 95px -34px rgba(0,0,0,.82), 0 0 0 1px rgba(255,255,255,.07), inset 0 0 0 1px rgba(255,255,255,.05);}
     .device .scrn{border-radius:37px;overflow:hidden;line-height:0;background:#E4E8EF}
-    .device .scrn img{width:100%;display:block}
+    .device .scrn img{width:100%;height:auto;aspect-ratio:390 / 844;display:block}
 
     /* ---------- "A LOOK INSIDE" gallery ---------- */
     .gallery{position:relative;max-width:var(--maxw);margin:clamp(40px,5vw,64px) auto 0;padding:0 28px}
@@ -378,6 +403,8 @@
     .cta-final h2 .accent{color:var(--amber);font-style:italic}
     .cta-final p{font-size:20px;color:var(--text-2);max-width:48ch;margin:0 auto 40px}
     .cta-final .play-btn{margin:0 auto}
+    .cta-final .signup{margin:0 auto;justify-content:center}
+    .cta-final .signup-msg{margin:16px auto 0;text-align:center}
 
     /* footer */
     footer{border-top:1px solid var(--line-2);padding:60px 28px 50px;background:rgba(8,17,35,.5)}
@@ -455,7 +482,7 @@
       .bar>i,.belt-line>i{width:var(--w,84%)!important}
       .volbar i{height:var(--h)!important}
     }
-    @media(max-width:980px){.hero{grid-template-columns:1fr;text-align:center;padding-top:110px;min-height:auto}.hero-copy{margin:0 auto}.hero-brand,.hero-actions{justify-content:center}.hero-fig{display:none}.hero-visual{margin-top:20px}}
+    @media(max-width:980px){.hero{grid-template-columns:1fr;text-align:center;padding-top:110px;min-height:auto}.hero-copy{margin:0 auto}.hero-brand{justify-content:center}.hero-actions{align-items:center;width:100%}.hero-fig{display:none}.hero-visual{margin-top:20px}}
   </style>
 </head>
 <body>
@@ -483,11 +510,17 @@
       <h1 class="hero-h rise r2">Get on top of <span class="accent">your game.</span></h1>
       <p class="hero-sub rise r3">Log your rolls in seconds. Sweep turns them into a rich analysis of your training, giving you the data you need to improve your game: your real finish rates, positional gaps, where you struggle, and how you're improving against training partners over time. <b>Pay once</b> and leave the expensive subscriptions behind. Your data never leaves your phone.</p>
       <div class="hero-actions rise r4">
-        <a href="#get" class="play-btn">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 3.5v17c0 .9.97 1.46 1.74.99l13.9-8.5a1.15 1.15 0 000-1.98L4.74 2.51A1.15 1.15 0 003 3.5z"/></svg>
-          <span>Coming soon to Google Play</span>
-        </a>
-        <span class="play-note"><b>Pay once.</b> No subscription. No AI. Data stays on your phone.</span>
+        <form class="signup" id="signup-hero">
+          <input type="hidden" name="access_key" value="7f4e884a-f4c0-4b99-b18c-04b619e5f3a8" />
+          <input type="hidden" name="subject" value="New Sweep launch-list signup" />
+          <input type="hidden" name="from_name" value="Sweep website" />
+          <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <span class="field"><input type="email" name="email" placeholder="you@email.com" required autocomplete="email" aria-label="Your email address" /></span>
+          <button type="submit">Notify me at launch</button>
+        </form>
+        <p class="signup-msg" data-for="signup-hero" role="status" aria-live="polite"></p>
+        <span class="coming-soon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 3.5v17c0 .9.97 1.46 1.74.99l13.9-8.5a1.15 1.15 0 000-1.98L4.74 2.51A1.15 1.15 0 003 3.5z"/></svg>Coming soon to Google Play</span>
+        <span class="hero-price"><b>Free</b> to download and log. <span class="tag">$12.99</span> one-time Pro unlock, no subscription. Your data stays on your phone.</span>
       </div>
     </div>
 
@@ -643,6 +676,22 @@
     <div class="gal-dots" id="galDots"></div>
   </section>
 
+  <!-- WHO IT'S FOR -->
+  <section class="band">
+    <div class="wrap" style="text-align:center">
+      <div class="kicker reveal">Who it's for</div>
+      <h2 class="head reveal d1" style="margin:0 auto">Built for grapplers who <span class="it">keep showing up.</span></h2>
+      <ul class="whofor reveal d2">
+        <li>You roll several times a week and lose track of what's working.</li>
+        <li>You want your real finish rates, not a gut feeling.</li>
+        <li>You train gi, no-gi, or both.</li>
+        <li>You compete, or you're starting to think about it.</li>
+        <li>You forget the details of a great round by the next class.</li>
+        <li>You want your training data private, with no feed and no AI.</li>
+      </ul>
+    </div>
+  </section>
+
   <!-- PROMISE BAND -->
   <section class="band promise" id="get">
     <div class="wrap" style="text-align:center">
@@ -654,6 +703,7 @@
         <div class="pitem reveal d3"><div class="pn">0</div><div class="pl">Subscriptions, ever</div></div>
         <div class="pitem reveal d4"><div class="pn">0</div><div class="pl">Ads or tracking</div></div>
       </div>
+      <p class="reveal d2" style="font-size:17.5px;color:var(--text-2);max-width:62ch;margin:26px auto 0;line-height:1.6">Not a video library. Not a social network. Not an AI coach. Sweep is your private training log, and nothing else.</p>
       <p class="price-note reveal d2">Sweep is <b>free to download and log.</b> A one-time <span class="tag">$12.99</span> Pro unlock opens the full analysis, competition tools, and gameplans. <b>Pay once. No subscription, ever.</b></p>
     </div>
   </section>
@@ -661,11 +711,16 @@
   <!-- FINAL CTA -->
   <section class="cta-final">
     <h2 class="reveal">Get on top of <span class="accent">your game.</span></h2>
-    <p class="reveal d1">Understand it, train with intention, and improve faster.</p>
-    <a href="#" class="play-btn reveal d2">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 3.5v17c0 .9.97 1.46 1.74.99l13.9-8.5a1.15 1.15 0 000-1.98L4.74 2.51A1.15 1.15 0 003 3.5z"/></svg>
-      <span>Coming soon to Google Play</span>
-    </a>
+    <p class="reveal d1">Sweep is coming soon to Google Play. Drop your email and we'll send one message the day it goes live.</p>
+    <form class="signup reveal d2" id="signup-final">
+      <input type="hidden" name="access_key" value="7f4e884a-f4c0-4b99-b18c-04b619e5f3a8" />
+      <input type="hidden" name="subject" value="New Sweep launch-list signup" />
+      <input type="hidden" name="from_name" value="Sweep website" />
+      <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+      <span class="field"><input type="email" name="email" placeholder="you@email.com" required autocomplete="email" aria-label="Your email address" /></span>
+      <button type="submit">Notify me at launch</button>
+    </form>
+    <p class="signup-msg" data-for="signup-final" role="status" aria-live="polite"></p>
   </section>
 
   <!-- FOOTER -->
@@ -786,6 +841,37 @@
         },{passive:true});
       }
     }
+  </script>
+
+  <!-- email launch-list: submit to Web3Forms via fetch, show inline result (no page nav) -->
+  <script>
+    (function () {
+      document.querySelectorAll('form.signup').forEach(function (form) {
+        var msg = document.querySelector('.signup-msg[data-for="' + form.id + '"]');
+        function show(kind, text) { if (!msg) return; msg.className = 'signup-msg ' + kind; msg.textContent = text; }
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          if (form.classList.contains('busy')) return;
+          var key = (form.querySelector('[name=access_key]') || {}).value || '';
+          if (!key || key === 'YOUR_WEB3FORMS_ACCESS_KEY') {
+            show('err', 'Signup is not wired up yet. Please email hello@sweepbjj.app to be notified.');
+            return;
+          }
+          form.classList.add('busy');
+          if (msg) { msg.className = 'signup-msg'; msg.textContent = ''; }
+          fetch('https://api.web3forms.com/submit', {
+            method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(form)
+          }).then(function (r) { return r.json(); }).then(function (d) {
+            form.classList.remove('busy');
+            if (d && d.success) { form.reset(); show('ok', "You're on the list. We'll send one email the day Sweep goes live."); }
+            else { show('err', 'Something went wrong. Please try again, or email hello@sweepbjj.app.'); }
+          }).catch(function () {
+            form.classList.remove('busy');
+            show('err', 'Something went wrong. Please try again, or email hello@sweepbjj.app.');
+          });
+        });
+      });
+    })();
   </script>
 </body>
 </html>
